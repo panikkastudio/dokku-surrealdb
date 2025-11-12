@@ -1,6 +1,6 @@
 # dokku surrealdb
 
-Unofficial surrealdb plugin for dokku. Currently defaults to installing [surrealdb/surrealdb nightly](https://hub.docker.com/r/surrealdb/surrealdb/).
+Unofficial surrealdb plugin for dokku. Currently defaults to installing [surrealdb/surrealdb latest](https://hub.docker.com/r/surrealdb/surrealdb/).
 
 ## Requirements
 
@@ -11,7 +11,7 @@ Unofficial surrealdb plugin for dokku. Currently defaults to installing [surreal
 
 ```shell
 # on 0.19.x+
-sudo dokku plugin:install https://github.com/ignisda/dokku-surrealdb.git surrealdb
+sudo dokku plugin:install https://github.com/panikkastudio/dokku-surrealdb.git surrealdb
 ```
 
 ## Commands
