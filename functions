@@ -94,7 +94,7 @@ service_create_container() {
   DOCKER_ARGS+=("--env=SURREAL_PATH=file:///data/database.db")
   DOCKER_ARGS+=("--env=SURREAL_PASS=$PASSWORD")
   DOCKER_ARGS+=("--env=SURREAL_USER=$USER")
-  DOCKER_ARGS+=("--env=SURREAL_NO_BANNER=1")
+  DOCKER_ARGS+=("--env=SURREAL_NO_BANNER=true")
   DOCKER_ARGS+=("--hostname=$SERVICE_NAME")
   DOCKER_ARGS+=("--label=dokku.service=$PLUGIN_COMMAND_PREFIX")
   DOCKER_ARGS+=("--label=dokku=service")
