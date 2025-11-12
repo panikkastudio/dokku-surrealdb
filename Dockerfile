@@ -1,1 +1,1 @@
-FROM surrealdb/surrealdb:nightly
+FROM surrealdb/surrealdb:latest
