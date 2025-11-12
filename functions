@@ -46,7 +46,9 @@ service_create() {
   plugn trigger service-action pre-create "$PLUGIN_COMMAND_PREFIX" "$SERVICE"
   mkdir -p "$SERVICE_ROOT" || dokku_log_fail "Unable to create service directory"
   mkdir -p "$SERVICE_ROOT/data" || dokku_log_fail "Unable to create service data directory"
+  
   touch "$LINKS_FILE"
+  chmod -R 777 "$SERVICE_ROOT/data"
 
   PASSWORD=$(openssl rand -hex 32)
   if [[ -n "$SERVICE_PASSWORD" ]]; then
