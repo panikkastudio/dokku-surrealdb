@@ -15,7 +15,8 @@ service_connect() {
   local SERVICE_ROOT="$PLUGIN_DATA_ROOT/$SERVICE"
   local SERVICE_NAME="$(get_service_name "$SERVICE")"
   local PASSWORD="$(service_password "$SERVICE")"
-  local USER="$(service_user "$SERVICE")"
+  # local USER="$(service_user "$SERVICE")"
+  local USER="root"
   local SERVICE_TTY_OPTS
   has_tty && SERVICE_TTY_OPTS="-t"
 
@@ -58,10 +59,11 @@ service_create() {
   echo "$PASSWORD" >"$SERVICE_ROOT/PASSWORD"
   chmod 640 "$SERVICE_ROOT/PASSWORD"
 
-  USER=$(openssl rand -hex 16)
-  if [[ -n "$SERVICE_USER" ]]; then
-    USER="$SERVICE_USER"
-  fi
+  # USER=$(openssl rand -hex 16)
+  # if [[ -n "$SERVICE_USER" ]]; then
+  #   USER="$SERVICE_USER"
+  # fi
+  USER="root"
   echo "$USER" >"$SERVICE_ROOT/USER"
   chmod 640 "$SERVICE_ROOT/USER"
 
@@ -78,7 +80,8 @@ service_create_container() {
   local SERVICE_HOST_ROOT="$PLUGIN_DATA_HOST_ROOT/$SERVICE"
   local SERVICE_NAME="$(get_service_name "$SERVICE")"
   local PASSWORD="$(service_password "$SERVICE")"
-  local USER="$(service_user "$SERVICE")"
+  # local USER="$(service_user "$SERVICE")"
+  local USER="root"
   local DATABASE_NAME="$(get_database_name "$SERVICE")"
   local PREVIOUS_ID
 
@@ -172,7 +175,8 @@ service_export() {
   local SERVICE_NAME="$(get_service_name "$SERVICE")"
   local DATABASE_NAME="$(get_database_name "$SERVICE")"
   local PASSWORD="$(service_password "$SERVICE")"
-  local USER="$(service_user "$SERVICE")"
+  # local USER="$(service_user "$SERVICE")"
+  local USER="root"
 
   [[ -n $SSH_TTY ]] && stty -opost
   "$DOCKER_BIN" container exec "$SERVICE_NAME" /surreal \
